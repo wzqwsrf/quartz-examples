@@ -13,9 +13,13 @@ import java.util.Date;
  */
 public class SimpleScheduler {
     public static void main(String[] args) {
+        testSimpleScheduler();
+    }
+
+    public static void testSimpleScheduler(){
         try {
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
-            JobDetail jobDetail = new JobDetail("another job", "SimpleGroup", SimpleJob.class);
+            JobDetail jobDetail = new JobDetail("Simple job", "SimpleGroup", SimpleJob.class);
             Trigger trigger = TriggerUtils.makeSecondlyTrigger();
             trigger.setName("test");
             trigger.setStartTime(new Date());
@@ -25,5 +29,6 @@ public class SimpleScheduler {
             e.printStackTrace();
         }
     }
+
 
 }
